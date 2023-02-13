@@ -12,9 +12,10 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 Imports: 
     checkmate,
-    rstac,
-    sf,
-    terra
+    rstac
 Suggests: 
+    sf,
+    stars,
+    terra,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

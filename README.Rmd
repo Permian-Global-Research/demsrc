@@ -1,0 +1,50 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+<br>
+
+<img src='https://avatars.githubusercontent.com/u/106586419?s=400&u=69fb140fd7d3f204f361e85dba7398ac33d88a03&v=4' align='right' height='10%' width='10%'/></a>
+
+# demsrc
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of demsrc is to return the remote url sources for global DEM products.
+
+## Installation
+
+You can install the development version of demsrc from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("Permian-Global-Research/demsrc")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library(demsrc)
+library(sf)
+
+nc_sf <- system.file("gpkg", "nc.gpkg", package = "sf") |>
+  read_sf()
+
+
+mpc_dtm_src(nc_sf, collection = "alos-dem")
+
+```
+
