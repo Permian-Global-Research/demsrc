@@ -7,6 +7,7 @@
 \alias{rstac_bbox.stars}
 \alias{rstac_bbox.SpatRaster}
 \alias{rstac_bbox.SpatVector}
+\alias{rstac_bbox.numeric}
 \title{Create an {rstac} compatible search boundary box}
 \usage{
 rstac_bbox(x)
@@ -20,6 +21,8 @@ rstac_bbox(x)
 \method{rstac_bbox}{SpatRaster}(x, ...)
 
 \method{rstac_bbox}{SpatVector}(x)
+
+\method{rstac_bbox}{numeric}(x)
 }
 \arguments{
 \item{x}{}

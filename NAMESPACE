@@ -2,6 +2,7 @@
 
 S3method(rstac_bbox,SpatRaster)
 S3method(rstac_bbox,SpatVector)
+S3method(rstac_bbox,numeric)
 S3method(rstac_bbox,sf)
 S3method(rstac_bbox,sfc)
 S3method(rstac_bbox,stars)

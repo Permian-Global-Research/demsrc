@@ -11,7 +11,10 @@
 <!-- badges: end -->
 
 The goal of demsrc is to return the remote url sources for global DEM
-products.
+products. For now the only main function is `mpc_dtm_src` which accesses
+the collections via the [Microsoft Planetary Computer STAC
+catalog](https://planetarycomputer.microsoft.com/catalog) using the
+[{rstac} package](https://brazil-data-cube.github.io/rstac/)
 
 ## Installation
 
@@ -25,10 +28,24 @@ devtools::install_github("Permian-Global-Research/demsrc")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+Return the URLs for the desired DEM collection.
 
 ``` r
 library(demsrc)
+library(terra)
+#> terra 1.6.51
+
+
+(mh <- mpc_dtm_src(c( -121.772, 45.321, -121.611, 45.419), 
+                   collection = "alos-dem"))
+#> [1] "https://ai4edataeuwest.blob.core.windows.net/alos-dem/AW3D30_global/ALPSMLC30_N045W122_DSM.tif"
+
+plot(rast(mh))
+```
+
+<img src="man/figures/README-Mt-Hood-example-1.png" width="100%" />
+
+``` r
 library(sf)
 #> Linking to GEOS 3.10.2, GDAL 3.4.3, PROJ 8.2.1; sf_use_s2() is TRUE
 

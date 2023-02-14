@@ -22,6 +22,9 @@ knitr::opts_chunk$set(
 <!-- badges: end -->
 
 The goal of demsrc is to return the remote url sources for global DEM products.
+For now the only main function is `mpc_dtm_src` which accesses the collections
+via the [Microsoft Planetary Computer STAC catalog](https://planetarycomputer.microsoft.com/catalog) 
+using the [{rstac} package](https://brazil-data-cube.github.io/rstac/)
 
 ## Installation
 
@@ -34,10 +37,23 @@ devtools::install_github("Permian-Global-Research/demsrc")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+Return the URLs for the desired DEM collection.
 
-```{r example}
+```{r Mt-Hood-example}
 library(demsrc)
+library(terra)
+
+
+(mh <- mpc_dtm_src(c( -121.772, 45.321, -121.611, 45.419), 
+                   collection = "alos-dem"))
+
+plot(rast(mh))
+
+```
+
+
+
+```{r nc-example}
 library(sf)
 
 nc_sf <- system.file("gpkg", "nc.gpkg", package = "sf") |>

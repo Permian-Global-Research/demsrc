@@ -7,6 +7,9 @@
 #' @export
 #'
 #' @examples
+#'
+#' mpc_dtm_src(c( -121.772, 45.321, -121.611, 45.419))
+#'
 rstac_bbox <- function(x) {
   UseMethod("rstac_bbox")
 }
@@ -46,6 +49,18 @@ rstac_bbox.SpatRaster <- function(x,...){
 rstac_bbox.SpatVector <- function(x){
   terra_method(x)
 }
+
+#' @rdname rstac_bbox
+#'
+#' @export
+rstac_bbox.numeric <- function(x){
+  checkmate::assert_numeric(x, lower = -180, upper=180, len=4)
+  checkmate::assert_numeric(x[1], lower = -180, upper=x[3])
+  checkmate::assert_numeric(x[2], lower = -90, upper=x[4])
+  names(x) <- c("xmin", "ymin", "xmax", "ymax")
+  x
+}
+
 
 #' @noRd
 sf_method <- function(x){

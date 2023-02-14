@@ -8,6 +8,23 @@
 #' @export
 #'
 #' @examples
+#'
+#' # define bbox with numeric
+#' mpc_dtm_src(c( -121.772, 45.321, -121.611, 45.419))
+#'
+#' if (requireNamespace("sf", quietly = TRUE)){
+#' nc_sf <- system.file("gpkg", "nc.gpkg", package = "sf") |>
+#' read_sf()
+#' mpc_dtm_src(nc_sf, collection = "alos-dem")
+#' }
+#'
+#' if (requireNamespace("sf", quietly = TRUE)){
+#' fr <- system.file("ex/elev.tif", package="terra") |>
+#' rast()
+#' mpc_dtm_src(nc_sf, collection = "cop-dem-glo-90")
+#' }
+#'
+#'
 mpc_dtm_src <- function(aoi, collection = c("cop-dem-glo-30", "cop-dem-glo-90", "alos-dem", "nasadem")){
 
   checkmate::assertChoice(
