@@ -1,10 +1,14 @@
 #' Get the tile sources for Copernicus GLO-30, ALOS World 3D-30m, NASADEM HGT
 #' v001 DTM using the planetary computer STAC catalogue.
 #'
-#' @param aoi an sf object to define where you want the data for.
+#' @param aoi a spatial extent which can be provided as a numeric bounding box
+#' or using a spatial object from either the {terra}, {sf} or {stars} packages.
 #' @param collection Any of: "cop-dem-glo-30", "cop-dem-glo-90", "alos-dem", "nasadem".
+#' @param vsicurl logical with default TRUE. If TRUE the '/vsicurl/' prefix is appended
+#' to returned urls which increases read speed for gdal. see https://gdal.org/user/virtual_file_systems.html#vsicurl-http-https-ftp-files-random-access
+#' for more information.
 #'
-#' @return
+#' @return A character vector of url paths.
 #' @export
 #'
 #' @examples
@@ -14,18 +18,21 @@
 #'
 #' if (requireNamespace("sf", quietly = TRUE)){
 #' nc_sf <- system.file("gpkg", "nc.gpkg", package = "sf") |>
-#' read_sf()
+#' sf::read_sf()
 #' mpc_dtm_src(nc_sf, collection = "alos-dem")
 #' }
 #'
-#' if (requireNamespace("sf", quietly = TRUE)){
+#' if (requireNamespace("terra", quietly = TRUE)){
 #' fr <- system.file("ex/elev.tif", package="terra") |>
-#' rast()
+#' terra::rast()
 #' mpc_dtm_src(nc_sf, collection = "cop-dem-glo-90")
 #' }
 #'
 #'
-mpc_dtm_src <- function(aoi, collection = c("cop-dem-glo-30", "cop-dem-glo-90", "alos-dem", "nasadem")){
+mpc_dtm_src <- function(aoi,
+                        collection = c("cop-dem-glo-30", "cop-dem-glo-90",
+                                       "alos-dem", "nasadem"),
+                        vsicurl = TRUE){
 
   checkmate::assertChoice(
     x = collection[1],
@@ -44,8 +51,13 @@ mpc_dtm_src <- function(aoi, collection = c("cop-dem-glo-30", "cop-dem-glo-90", 
 
   src_list <-rstac::assets_url(it_obj)
 
-  src_list[grep(".tif$", src_list)]
+  .urls <- src_list[grep(".tif$", src_list)]
 
+  if (isTRUE(vsicurl)){
+    .urls <- sapply(.urls, function(x) paste0("/vsicurl/", x), USE.NAMES =FALSE)
+  }
+
+return(.urls)
 }
 
 

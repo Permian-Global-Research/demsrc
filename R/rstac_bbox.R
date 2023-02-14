@@ -1,9 +1,12 @@
 
 #' Create an {rstac} compatible search boundary box
 #'
-#' @param x
+#' @param x A numeric (length 4) to define the spatial bounds of the STAC API
+#' query or one of the following rspatial objects: sf, sfc, stars, SpatVector,
+#' SpatRaster
 #'
-#' @return
+#' @return A numeric of length 4 defining the xmin, ymin, xmax ymax coordinates
+#' of the search extent in WGS84 (EPSG:4326).
 #' @export
 #'
 #' @examples
@@ -39,7 +42,7 @@ rstac_bbox.stars<- function(x){
 #' @rdname rstac_bbox
 #'
 #' @export
-rstac_bbox.SpatRaster <- function(x,...){
+rstac_bbox.SpatRaster <- function(x){
   terra_method(x)
 }
 

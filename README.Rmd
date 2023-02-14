@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 <!-- badges: end -->
 
 The goal of demsrc is to return the remote url sources for global DEM products.
-For now the only main function is `mpc_dtm_src` which accesses the collections
+For now, the only main function is `mpc_dtm_src` which accesses the collections
 via the [Microsoft Planetary Computer STAC catalog](https://planetarycomputer.microsoft.com/catalog) 
 using the [{rstac} package](https://brazil-data-cube.github.io/rstac/)
 

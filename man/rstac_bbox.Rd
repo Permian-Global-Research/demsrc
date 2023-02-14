@@ -18,18 +18,26 @@ rstac_bbox(x)
 
 \method{rstac_bbox}{stars}(x)
 
-\method{rstac_bbox}{SpatRaster}(x, ...)
+\method{rstac_bbox}{SpatRaster}(x)
 
 \method{rstac_bbox}{SpatVector}(x)
 
 \method{rstac_bbox}{numeric}(x)
 }
 \arguments{
-\item{x}{}
+\item{x}{A numeric (length 4) to define the spatial bounds of the STAC API
+query or one of the following rspatial objects: sf, sfc, stars, SpatVector,
+SpatRaster}
 }
 \value{
-
+A numeric of length 4 defining the xmin, ymin, xmax ymax coordinates
+of the search extent in WGS84 (EPSG:4326).
 }
 \description{
 Create an {rstac} compatible search boundary box
+}
+\examples{
+
+mpc_dtm_src(c( -121.772, 45.321, -121.611, 45.419))
+
 }
