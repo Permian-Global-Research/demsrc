@@ -1,10 +1,11 @@
 Package: demsrc
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Title: Get remote URLs for remote Digital Elevation Model (DEM) collections
+Version: 0.0.1
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+    person("Hugh", "Graham", , "hugh.graham@permianglobal.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0001-9451-5010"))
+Description: Accesses intersecting DEM tiles for a given area of interest, which
+             can be defined as with bounding coordinates or rspatial objects.
 License: Apache License (>= 2)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -13,6 +14,7 @@ Imports:
     checkmate,
     rstac
 Suggests: 
+    covr,
     sf,
     stars,
     terra,
@@ -20,3 +22,6 @@ Suggests:
 Config/testthat/edition: 3
 Depends: 
     R (>= 4.1.0)
+URL: https://github.com/permian-global-research/demsrc/,
+     https://permian-global-research.github.io/demsrc/
+BugReports: https://github.com/Permian-Global-Research/demsrc/issues

@@ -20,6 +20,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/Permian-Global-Research/demsrc/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Permian-Global-Research/demsrc/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/Permian-Global-Research/demsrc/branch/main/graph/badge.svg)](https://app.codecov.io/gh/Permian-Global-Research/demsrc?branch=main)
 <!-- badges: end -->
 
 The goal of demsrc is to return the remote url sources for global DEM products.
@@ -61,7 +62,7 @@ nc_sf <- system.file("gpkg", "nc.gpkg", package = "sf") |>
   read_sf()
 
 
-mpc_dtm_src(nc_sf, collection = "alos-dem")
+mpc_dtm_src(nc_sf, collection = "cop-dem-glo-30")
 
 ```
 
