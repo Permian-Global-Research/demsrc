@@ -8,6 +8,8 @@
 # demsrc
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/Permian-Global-Research/demsrc/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Permian-Global-Research/demsrc/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of demsrc is to return the remote url sources for global DEM
