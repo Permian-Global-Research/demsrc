@@ -1,0 +1,12 @@
+url: https://permian-global-research.github.io/demsrc/
+template:
+  bootstrap: 5
+  bootswatch: solar
+  navbar:
+    bg: primary
+    type: dark
+  theme: arrow-dark
+  bslib:
+    primary: '#FF963A'
+    success: '#FF963A'
+
