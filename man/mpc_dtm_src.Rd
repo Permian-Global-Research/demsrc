@@ -2,8 +2,7 @@
 % Please edit documentation in R/mpc_srcs.R
 \name{mpc_dtm_src}
 \alias{mpc_dtm_src}
-\title{Get the tile sources for Copernicus GLO-30, ALOS World 3D-30m, NASADEM HGT
-v001 DTM using the planetary computer STAC catalogue.}
+\title{Get the Digital Elevation Model (DEM) tile url sources}
 \usage{
 mpc_dtm_src(
   aoi,
@@ -33,15 +32,16 @@ signed this is now required for the planetary computer API.}
 \item{subscription_key}{A character. The subscription key for the planetary
 computer API. This can be set as an environment variable 'rsi_pc_key' (
 the default for the \link[rsi]{rsi} package) or
-'MPC_TOKEN' (the default for the sits).
-see \link[rsi]{sign_planetary_computer}}
+'MPC_TOKEN' (the default for the sits package). It isn't essential to set
+this token but it should improve the performance of the API. See
+\link[rsi]{sign_planetary_computer}}
 }
 \value{
 A character vector of url paths.
 }
 \description{
-Get the tile sources for Copernicus GLO-30, ALOS World 3D-30m, NASADEM HGT
-v001 DTM using the planetary computer STAC catalogue.
+Get the Digital Elevation Model (DEM) tile url sources from the Microsoft
+Planetary Computer STAC catalogue.
 }
 \examples{
 
