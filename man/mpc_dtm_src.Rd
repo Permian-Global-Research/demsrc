@@ -8,18 +8,33 @@ v001 DTM using the planetary computer STAC catalogue.}
 mpc_dtm_src(
   aoi,
   collection = c("cop-dem-glo-30", "cop-dem-glo-90", "alos-dem", "nasadem"),
-  vsicurl = TRUE
+  vsicurl = TRUE,
+  sign_items = TRUE,
+  subscription_key = Sys.getenv("rsi_pc_key")
 )
 }
 \arguments{
 \item{aoi}{a spatial extent which can be provided as a numeric bounding box
-or using a spatial object from either the {terra}, {sf} or {stars} packages.}
+or using a spatial object from either the \link[terra]{terra}, \link[sf]{sf}
+or stars packages.}
 
-\item{collection}{Any of: "cop-dem-glo-30", "cop-dem-glo-90", "alos-dem", "nasadem".}
+\item{collection}{A character. one of: "cop-dem-glo-30", "cop-dem-glo-90",
+"alos-dem", "nasadem".}
 
-\item{vsicurl}{logical with default TRUE. If TRUE the '/vsicurl/' prefix is appended
-to returned urls which increases read speed for gdal. see https://gdal.org/user/virtual_file_systems.html#vsicurl-http-https-ftp-files-random-access
+\item{vsicurl}{logical with default TRUE. If TRUE the '/vsicurl/' prefix is
+appended
+to returned urls which increases read speed for gdal. see
+\url{https://gdal.org/user/virtual_file_systems.html#vsicurl-http-https-ftp-files-random-access}
 for more information.}
+
+\item{sign_items}{logical with default TRUE. If TRUE the STAC items are
+signed this is now required for the planetary computer API.}
+
+\item{subscription_key}{A character. The subscription key for the planetary
+computer API. This can be set as an environment variable 'rsi_pc_key' (
+the default for the \link[rsi]{rsi} package) or
+'MPC_TOKEN' (the default for the sits).
+see \link[rsi]{sign_planetary_computer}}
 }
 \value{
 A character vector of url paths.
@@ -31,19 +46,18 @@ v001 DTM using the planetary computer STAC catalogue.
 \examples{
 
 # define bbox with numeric
-mpc_dtm_src(c( -121.772, 45.321, -121.611, 45.419))
+mpc_dtm_src(c(-121.772, 45.321, -121.611, 45.419))
 
-if (requireNamespace("sf", quietly = TRUE)){
-nc_sf <- system.file("gpkg", "nc.gpkg", package = "sf") |>
-sf::read_sf()
-mpc_dtm_src(nc_sf, collection = "alos-dem")
+if (requireNamespace("sf", quietly = TRUE)) {
+  nc_sf <- system.file("gpkg", "nc.gpkg", package = "sf") |>
+    sf::read_sf()
+  mpc_dtm_src(nc_sf, collection = "alos-dem")
 }
 
-if (requireNamespace("terra", quietly = TRUE)){
-fr <- system.file("ex/elev.tif", package="terra") |>
-terra::rast()
-mpc_dtm_src(nc_sf, collection = "cop-dem-glo-90")
+if (requireNamespace("terra", quietly = TRUE)) {
+  fr <- system.file("ex/elev.tif", package = "terra") |>
+    terra::rast()
+  mpc_dtm_src(nc_sf, collection = "cop-dem-glo-90")
 }
-
 
 }

@@ -8,7 +8,7 @@
 \alias{rstac_bbox.SpatRaster}
 \alias{rstac_bbox.SpatVector}
 \alias{rstac_bbox.numeric}
-\title{Create an {rstac} compatible search boundary box}
+\title{Create an \link[rstac]{rstac} compatible search boundary box}
 \usage{
 rstac_bbox(x)
 
@@ -34,10 +34,10 @@ A numeric of length 4 defining the xmin, ymin, xmax ymax coordinates
 of the search extent in WGS84 (EPSG:4326).
 }
 \description{
-Create an {rstac} compatible search boundary box
+Create an \link[rstac]{rstac} compatible search boundary box
 }
 \examples{
 
-mpc_dtm_src(c( -121.772, 45.321, -121.611, 45.419))
+mpc_dtm_src(c(-121.772, 45.321, -121.611, 45.419))
 
 }
