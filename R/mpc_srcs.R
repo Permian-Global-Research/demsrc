@@ -63,7 +63,12 @@ mpc_dtm_src <- function(aoi,
 
   if (isTRUE(sign_items)) it_obj <- sign_mpc(it_obj, subscription_key)
 
-  urls <- rstac::assets_url(it_obj, "data")
+  # select either elevation or data, whicever present
+  av_assets <- rstac::items_assets(it_obj)
+  desired_assets <- c("data", "elevation")
+  selected_asset <- intersect(av_assets, desired_assets)[1]
+
+  urls <- rstac::assets_url(it_obj, selected_asset)
 
   if (isTRUE(vsicurl)) {
     urls <- sapply(

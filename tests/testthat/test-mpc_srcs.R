@@ -17,4 +17,16 @@ test_that("mpc_dtm_src works", {
 
   nc_urls_nokey <- mpc_dtm_src(nc_sf, subscription_key = "")
   expect_equal(length(nc_urls_nokey), 37)
+
+  box <- c(-121.772, 45.321, -121.611, 45.419)
+
+  lapply(c(
+    "cop-dem-glo-30", "cop-dem-glo-90",
+    "alos-dem", "nasadem"
+  ), function(x) {
+    expect_silent(
+      durl <- mpc_dtm_src(box, collection = x)
+    )
+    expect_true(length(durl) > 0)
+  })
 })
