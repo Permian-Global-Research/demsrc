@@ -9,12 +9,15 @@ Description: Accesses intersecting DEM tiles for a given area of interest, which
 License: Apache License (>= 2)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.2
+RoxygenNote: 7.3.1
 Imports: 
     checkmate,
+    httr,
+    rlang,
     rstac
 Suggests: 
     covr,
+    rsi,
     sf,
     stars,
     terra,
