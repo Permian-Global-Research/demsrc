@@ -11,7 +11,7 @@
 #' @examples
 #' rstac_bbox(c(-121.772, 45.321, -121.611, 45.419))
 #'
-#' #' if (requireNamespace("sf", quietly = TRUE)) {
+#' if (requireNamespace("sf", quietly = TRUE)) {
 #'   nc_sf <- system.file("gpkg", "nc.gpkg", package = "sf") |>
 #'     sf::read_sf()
 #'   rstac_bbox(nc_sf)
