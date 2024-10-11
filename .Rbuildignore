@@ -3,3 +3,7 @@
 ^pkgdown$
 ^\.github$
 ^codecov\.yml$
+^LICENSE\.md$
+^demsrc\.Rproj$
+^README\.Rmd$
+^DEV$
