@@ -1,6 +1,6 @@
 Package: demsrc
 Title: Get remote URLs for remote Digital Elevation Model (DEM) collections
-Version: 0.0.1
+Version: 0.2.1
 Authors@R: 
     person("Hugh", "Graham", , "hugh.graham@permianglobal.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-9451-5010"))
