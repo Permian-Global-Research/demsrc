@@ -1,5 +1,7 @@
-#' Get the tile sources for Copernicus GLO-30, ALOS World 3D-30m, NASADEM HGT
-#' v001 DTM using the planetary computer STAC catalogue.
+#' Get the Digital Elevation Model (DEM) tile url sources
+#'
+#' Get the Digital Elevation Model (DEM) tile url sources from the Microsoft
+#' Planetary Computer STAC catalogue.
 #'
 #' @param aoi a spatial extent which can be provided as a numeric bounding box
 #' or using a spatial object from either the \link[terra]{terra}, \link[sf]{sf}
