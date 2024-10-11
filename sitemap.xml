@@ -1,24 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://permian-global-research.github.io/demsrc/404.html</loc>
-  </url>
-  <url>
-    <loc>https://permian-global-research.github.io/demsrc/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://permian-global-research.github.io/demsrc/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://permian-global-research.github.io/demsrc/index.html</loc>
-  </url>
-  <url>
-    <loc>https://permian-global-research.github.io/demsrc/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://permian-global-research.github.io/demsrc/reference/mpc_dtm_src.html</loc>
-  </url>
-  <url>
-    <loc>https://permian-global-research.github.io/demsrc/reference/rstac_bbox.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://permian-global-research.github.io/demsrc/404.html</loc></url>
+<url><loc>https://permian-global-research.github.io/demsrc/LICENSE.html</loc></url>
+<url><loc>https://permian-global-research.github.io/demsrc/authors.html</loc></url>
+<url><loc>https://permian-global-research.github.io/demsrc/index.html</loc></url>
+<url><loc>https://permian-global-research.github.io/demsrc/reference/index.html</loc></url>
+<url><loc>https://permian-global-research.github.io/demsrc/reference/mpc_dtm_src.html</loc></url>
+<url><loc>https://permian-global-research.github.io/demsrc/reference/rstac_bbox.html</loc></url>
 </urlset>
+
