@@ -6,12 +6,11 @@
 #'
 #' @return A numeric of length 4 defining the xmin, ymin, xmax ymax coordinates
 #' of the search extent in WGS84 (EPSG:4326).
+#' @rdname rstac_bbox
 #' @export
-#'
 #' @examples
-#'
 #' rstac_bbox(c(-121.772, 45.321, -121.611, 45.419))
-#' 
+#'
 #' #' if (requireNamespace("sf", quietly = TRUE)) {
 #'   nc_sf <- system.file("gpkg", "nc.gpkg", package = "sf") |>
 #'     sf::read_sf()
@@ -23,21 +22,18 @@ rstac_bbox <- function(x) {
 }
 
 #' @rdname rstac_bbox
-#'
 #' @export
 rstac_bbox.sf <- function(x) {
   sf_method(x)
 }
 
 #' @rdname rstac_bbox
-#'
 #' @export
 rstac_bbox.sfc <- function(x) {
   sf_method(x)
 }
 
 #' @rdname rstac_bbox
-#'
 #' @export
 rstac_bbox.stars <- function(x) {
   sf_method(x)
@@ -45,21 +41,18 @@ rstac_bbox.stars <- function(x) {
 
 
 #' @rdname rstac_bbox
-#'
 #' @export
 rstac_bbox.SpatRaster <- function(x) {
   terra_method(x)
 }
 
 #' @rdname rstac_bbox
-#'
 #' @export
 rstac_bbox.SpatVector <- function(x) {
   terra_method(x)
 }
 
 #' @rdname rstac_bbox
-#'
 #' @export
 rstac_bbox.numeric <- function(x) {
   checkmate::assert_numeric(x, lower = -180, upper = 180, len = 4)
@@ -71,6 +64,7 @@ rstac_bbox.numeric <- function(x) {
 
 
 #' @noRd
+#' @keywords internal
 sf_method <- function(x) {
   x <- sf::st_transform(x, "EPSG:4326") |>
     sf::st_bbox()
@@ -78,6 +72,7 @@ sf_method <- function(x) {
 }
 
 #' @noRd
+#' @keywords internal
 terra_method <- function(x) {
   x <- terra::project(x, "EPSG:4326") |>
     terra::ext()

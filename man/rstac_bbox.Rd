@@ -37,7 +37,12 @@ of the search extent in WGS84 (EPSG:4326).
 Create an \link[rstac]{rstac} compatible search boundary box
 }
 \examples{
+rstac_bbox(c(-121.772, 45.321, -121.611, 45.419))
 
-mpc_dtm_src(c(-121.772, 45.321, -121.611, 45.419))
+#' if (requireNamespace("sf", quietly = TRUE)) {
+  nc_sf <- system.file("gpkg", "nc.gpkg", package = "sf") |>
+    sf::read_sf()
+  rstac_bbox(nc_sf)
+}
 
 }
