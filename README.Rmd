@@ -14,15 +14,12 @@ knitr::opts_chunk$set(
 ```
 <br>
 
-
 # demsrc
-
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/Permian-Global-Research/demsrc/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Permian-Global-Research/demsrc/actions/workflows/R-CMD-check.yaml)
 [![Codecov test coverage](https://codecov.io/gh/Permian-Global-Research/demsrc/branch/main/graph/badge.svg)](https://app.codecov.io/gh/Permian-Global-Research/demsrc?branch=main)
 <!-- badges: end -->
-<img src='https://avatars.githubusercontent.com/u/106586419?s=400&u=69fb140fd7d3f204f361e85dba7398ac33d88a03&v=4' align='right' height='10%' width='10%'/></a>
 
 The goal of demsrc is to return the remote url sources for global DEM products.
 For now, the only main function is `mpc_dtm_src` which accesses the collections
