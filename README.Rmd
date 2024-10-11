@@ -14,9 +14,10 @@ knitr::opts_chunk$set(
 ```
 <br>
 
-<img src='https://avatars.githubusercontent.com/u/106586419?s=400&u=69fb140fd7d3f204f361e85dba7398ac33d88a03&v=4' align='right' height='10%' width='10%'/></a>
 
 # demsrc
+<img src='https://avatars.githubusercontent.com/u/106586419?s=400&u=69fb140fd7d3f204f361e85dba7398ac33d88a03&v=4' align='right' height='10%' width='10%'/></a>
+
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/Permian-Global-Research/demsrc/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Permian-Global-Research/demsrc/actions/workflows/R-CMD-check.yaml)
@@ -39,30 +40,32 @@ devtools::install_github("Permian-Global-Research/demsrc")
 
 ## Example
 
-Return the URLs for the desired DEM collection.
+Here we load a few packages...
 
-```{r Mt-Hood-example}
+```{r pkg-load, message=FALSE, warning=FALSE}
 library(demsrc)
 library(terra)
-
-
-(mh <- mpc_dtm_src(c( -121.772, 45.321, -121.611, 45.419), 
-                   collection = "alos-dem"))
-
-plot(rast(mh))
-
+library(sf)
 ```
 
+And now we request the ALOS DEM urls for the Mount Hood area in Oregon using 
+the bounding box coordinates.
+```{r Mt-Hood-example}
+(mh <- mpc_dtm_src(c(-121.772, 45.321, -121.611, 45.419),
+  collection = "alos-dem"
+))
 
+plot(rast(mh))
+```
+
+And now to get the COP30 DEM urls for the North Carolina dataset, using and 
+sf object as the area of interest.
 
 ```{r nc-example}
-library(sf)
-
 nc_sf <- system.file("gpkg", "nc.gpkg", package = "sf") |>
   read_sf()
 
-
-mpc_dtm_src(nc_sf, collection = "cop-dem-glo-30")
-
+# show the first 3 urls:
+mpc_dtm_src(nc_sf, collection = "cop-dem-glo-30")[1:3]
 ```
 
